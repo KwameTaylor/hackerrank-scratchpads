@@ -44,5 +44,16 @@ SELECT name FROM Employee ORDER BY name;
 -- Given the CITY and COUNTRY tables, query the sum of the populations
 -- of all cities where the CONTINENT is 'Asia'.
 -- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
-SELECT SUM(POPULATION) AS 'PopulationSum' FROM CITY
-JOIN COUNTRY
+SELECT SUM(CITY.POPULATION) AS 'PopulationSum'
+FROM CITY
+JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code
+WHERE CONTINENT = 'Asia'
+GROUP BY COUNTRY.CONTINENT;
+
+-- Given the CITY and COUNTRY tables, query the names of all
+-- cities where the CONTINENT is 'Africa'.
+-- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT CITY.Name AS 'CityName'
+FROM CITY
+JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code
+WHERE CONTINENT = 'Africa';
