@@ -36,3 +36,13 @@ SELECT DISTINCT CITY FROM STATION WHERE CITY NOT RLIKE '^[aeiouAEIOU].*|.*[AEIOU
 -- SELECT Name FROM STUDENTS WHERE Marks>75 ORDER BY REGEXP_SUBSTR(Name, '\w{3}$'), ID ASC;
 -- The RegEx substring did not work to order by. I'll try using -3 index.
 SELECT Name FROM STUDENTS WHERE Marks>75 ORDER BY SUBSTRING(Name,-3), ID ASC;
+
+-- Write a query that prints a list of employee names (i.e.: the name attribute)
+-- from the Employee table in alphabetical order.
+SELECT name FROM Employee ORDER BY name;
+
+-- Given the CITY and COUNTRY tables, query the sum of the populations
+-- of all cities where the CONTINENT is 'Asia'.
+-- Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT SUM(POPULATION) AS 'PopulationSum' FROM CITY
+JOIN COUNTRY
